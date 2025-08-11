@@ -1,0 +1,17 @@
+Tecnologías Utilizadas:
+| HTML5 | CSS3 | JavaScript | PHP 8.2 | PostgreSQL 17 |
+
+Para poder levantar el proyecto, debes seguir los siguientes pasos:
+1. Tener la versión 8.2 de PHP.
+2. Tener la versión 17 de PostgreSQL
+3. Crear una nueva Base de Datos.
+4. Crear las tablas que se encuentran en la ruta /sql/create_tables.sql
+    - Para eso, debes navegar hasta la ruta del archivo y ejecutar el siguiente comando:
+    - psql -h localhost -U 'tu-usuario' -d 'tu-base-de-datos' -f create_tables.sql
+5. Una vez creadas las tablas. Añadir registros de prueba, ejecutando:
+    - psql -h localhost -U 'tu-usuario' -d 'tu-vase-de-datos' -f populate_tables.sql
+6. Añadir la configuración hacia la conexión con la Base de Datos:
+    - Utilizar el archivo example.conexion.php, cambiando el nombre a conexion.php
+    - Cambiar las credenciales $dbname, $user, $password según sea el caso.
+7. Levantar el servidor de php con el siguiente comando:
+    - php -S localhost:8000
