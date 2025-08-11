@@ -7,6 +7,7 @@
         $monedas = $query->fetchAll(PDO::FETCH_ASSOC);
     
         echo json_encode($monedas);
+        $pdo = null;
 
     } catch (PDOException $e) {
         http_response_code(500);

@@ -1,10 +1,11 @@
 import { getBodegas, getMonedas, getSucursales, insertProducto } from "./servicios.js";
 import { Formulario } from "./formulario.js";
 import { agregarOpciones } from "../utils/create_options.js";
-import { existeCodigoEnDB } from "./validaciones.js";
+import { agregarErrores, successAlert } from "../utils/create_alerts.js";
 
 const formulario = new Formulario();
 const form = document.querySelector('#formulario');
+const alerts = document.querySelector('#alerts')
 const { bodega, sucursal, moneda } = form.elements;
 
 form.addEventListener('change', actualizarFormulario);
@@ -45,11 +46,12 @@ async function enviarFormulario(event) {
         const respuesta = await insertProducto(formulario.estado);
         
         if (respuesta.status === 'success') {
-            alert(respuesta.mensaje)
             form.reset();
+            formulario.resetEstado();
+            successAlert(alerts, respuesta.mensaje);
         }
     } else {
-        formulario.mostrarErrores()
+        agregarErrores(alerts, formulario.errores);
     }
 }
 

@@ -14,6 +14,8 @@
             'status' => 'error',
             'mensaje' => 'Error en el servidor'
         ]);
+    } finally {
+        $pdo = null;
     }
     
 

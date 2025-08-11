@@ -70,6 +70,7 @@ label {
 .textarea-container {
     display: flex;
     flex-direction: column;
+    gap: var(--size-m);
     margin-bottom: var(--size-xl);
 }
 
@@ -87,6 +88,30 @@ button[type="submit"] {
     color: #fff;
     margin: auto;
     padding: var(--size-l) 50px;
+}
+
+#alerts {
+    margin: var(--size-l);
+}
+
+.mostrar {
+    display: block;
+}
+
+.ocultar {
+    display: none;
+}
+
+.error {
+    color: red;
+}
+
+.success {
+    color: #1aab8a;
+}
+
+.centered-text {
+    text-align: center;
 }
 
 @media only screen and (max-width: 850px) {

@@ -22,6 +22,8 @@
         ]);
 
         $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
+        $stmt->closeCursor();
+
         $id_producto_insertado = $resultado['id'];
         $codigo_insertado = $resultado['codigo'];
         
@@ -37,7 +39,7 @@
         $sql = "INSERT INTO productos_material (producto_id, material_id) VALUES " . implode(", ", $values);
         $stmt = $pdo->prepare($sql);
         $stmt->execute($params);
-        
+        $stmt->closeCursor();
 
         $pdo->commit();
 
@@ -64,8 +66,10 @@
             http_response_code(500);
             echo json_encode([
                 'status' => 'error',
-                'mensaje' => 'Error en el servidor'
+                'mensaje' => `Error en el servidor $e`
             ]);
         }
+    } finally {
+        $pdo = null;
     }
 ?>

@@ -15,11 +15,11 @@
     } catch (PDOException $e) {
         http_response_code(500);
 
-        echo $e . "\n";
-
         echo json_encode([
             'status' => 'error',
             'mensaje' => "Error en el servidor"
         ]);
+    } finally {
+        $pdo = null;
     }
 ?>

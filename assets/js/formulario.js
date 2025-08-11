@@ -51,7 +51,17 @@ export class Formulario {
         }
     }
 
-    mostrarErrores() {
-        this.errores.forEach(error => alert(error));
+    resetEstado() {
+        this.estado = {
+            codigo: '',
+            nombre: '',
+            bodega: '',
+            sucursal: '',
+            moneda: '',
+            precio: '',
+            materiales: [],
+            descripcion: ''
+        };
+        this.errores = [];
     }
 }

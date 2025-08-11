@@ -9,6 +9,7 @@
         $sucursales = $query->fetchAll(PDO::FETCH_ASSOC);
     
         echo json_encode($sucursales);
+        $pdo = null;
 
     } catch (PDOException $e) {
         http_response_code(500);
